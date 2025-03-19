@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/wordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="______"
+        android:textSize="50sp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/attemptsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Versuche übrig: 6"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Punkte: 0"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/highScoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Highscore: 0"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/guessedLettersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Geratene Buchstaben: "
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/guessedLettersContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/letterInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Buchstabe eingeben"
+        android:maxLength="1"
+        android:inputType="textCapCharacters"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/guessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Raten"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/restartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Neustart"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textAlignment="center" />
+
+</LinearLayout>
