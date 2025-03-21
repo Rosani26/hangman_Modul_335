@@ -43,7 +43,7 @@ public class GameLogic {
         fetchRandomWord();
     }
 
-    private void fetchRandomWord() {
+    public void fetchRandomWord() {
         ApiService.fetchWordFromApi(word -> {
             wordToGuess = word;
             onUpdate.onUpdate(getDisplayedWord());
