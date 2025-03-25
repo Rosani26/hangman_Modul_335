@@ -42,14 +42,7 @@
         android:layout_marginBottom="16dp"
         android:textAlignment="center" />
 
-    <TextView
-        android:id="@+id/guessedLettersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Geratene Buchstaben: "
-        android:textSize="16sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="16dp"/>
+
 
     <LinearLayout
         android:id="@+id/guessedLettersContainer"
@@ -78,12 +71,6 @@
         android:text="Raten"
         android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/restartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Neustart"
-        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/messageTextView"

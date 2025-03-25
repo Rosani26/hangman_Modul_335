@@ -1,7 +1,6 @@
-package com.example.hangman
+package com.example.hangman355
 
 import android.content.SharedPreferences
-import android.hardware.SensorManager
 import android.os.Bundle
 import android.os.Vibrator
 import android.view.animation.AnimationUtils
@@ -9,7 +8,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import com.example.hangman355.R
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONArray
@@ -21,6 +19,8 @@ class MainActivity : ComponentActivity() {
     private var attemptsLeft = 6
     private var score = 0
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var vibrator: Vibrator
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
         val guessButton = findViewById<Button>(R.id.guessButton)
         val scoreTextView = findViewById<TextView>(R.id.scoreTextView)
         val highScoreTextView = findViewById<TextView>(R.id.highScoreTextView)
+        vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
 
         highScoreTextView.text = "Highscore: $highScore"
 
@@ -85,13 +86,25 @@ class MainActivity : ComponentActivity() {
             if (wordToGuess.contains(letter)) {
                 score += 10
 
-                val animation = AnimationUtils.loadAnimation(this, R.anim.correct_guess)
+                val animation = AnimationUtils.loadAnimation(wordTextView.context, R.anim.correct_guess)
                 wordTextView.startAnimation(animation)
 
             } else {
                 attemptsLeft--
                 score -= 5
+
+                wordTextView.postDelayed({
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        vibrator.vibrate(
+                            android.os.VibrationEffect.createOneShot(500, android.os.VibrationEffect.DEFAULT_AMPLITUDE)
+                        )
+                    } else {
+                        @Suppress("DEPRECATION")
+                        vibrator.vibrate(500)
+                    }
+                }, 300) // 300ms Verzögerung
             }
+
 
             updateWordDisplay(wordTextView)
             attemptsTextView.text = "Attempts left: $attemptsLeft"
@@ -102,14 +115,14 @@ class MainActivity : ComponentActivity() {
                 resetGame(wordTextView, attemptsTextView, scoreTextView)
             }
         }
-
-
     }
+
+
 
     private fun resetGame(wordTextView: TextView, attemptsTextView: TextView, scoreTextView: TextView) {
         guessedLetters.clear()
         attemptsLeft = 6
-        // score bleibt erhalten! -> KEIN score = 0
+
 
         fetchRandomWord { newWord ->
             wordToGuess = newWord
