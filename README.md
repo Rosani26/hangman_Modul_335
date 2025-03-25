@@ -20,7 +20,6 @@
     cd hangman_Modul_355
     ```
 
-
 4. Starte das Spiel:
     ```bash
     Run Button oben Rechts
@@ -34,6 +33,9 @@ Alles wurde im ÜK erlernt und mit Kotlin programmiert.
 ## Wie man spielt
 
 1. **Singleplayer**: Versuche das geheime Wort zu erraten, indem du Buchstaben vorschlägst.
+2. **Neustart**: Neuer Versuch gewünscht? Drehe dein Gerät einmal und ein Neues wort wird erscheinen.
+3. **Falsche Eingaben**: Eine Vibration Teilt dir mit, dass du eine Falsche wahl getroffen hast.
+4. **Richtige Eingaben**: Bei Korrekten versuchen, wird dir das durch eine Animation Mitgeteilt
 
 ## Kontakt
 
